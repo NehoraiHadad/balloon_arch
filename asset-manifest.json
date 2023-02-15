@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/balloon_arch/static/css/main.f6e9d6d7.css",
-    "main.js": "/balloon_arch/static/js/main.add5a785.js",
+    "main.js": "/balloon_arch/static/js/main.85aae3d3.js",
     "static/js/787.7b8e78a5.chunk.js": "/balloon_arch/static/js/787.7b8e78a5.chunk.js",
     "static/media/home_page_photo.png": "/balloon_arch/static/media/home_page_photo.afe0ac8b5cfc9694d247.png",
     "static/media/logo.png": "/balloon_arch/static/media/logo.affbaa9d65eb66d86a5d.png",
@@ -9,11 +9,11 @@
     "static/media/SN_balon.otf": "/balloon_arch/static/media/SN_balon.946e762d204394a8b0bd.otf",
     "index.html": "/balloon_arch/index.html",
     "main.f6e9d6d7.css.map": "/balloon_arch/static/css/main.f6e9d6d7.css.map",
-    "main.add5a785.js.map": "/balloon_arch/static/js/main.add5a785.js.map",
+    "main.85aae3d3.js.map": "/balloon_arch/static/js/main.85aae3d3.js.map",
     "787.7b8e78a5.chunk.js.map": "/balloon_arch/static/js/787.7b8e78a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f6e9d6d7.css",
-    "static/js/main.add5a785.js"
+    "static/js/main.85aae3d3.js"
   ]
 }
