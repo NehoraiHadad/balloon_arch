@@ -1,0 +1,27 @@
+@media (min-width: 28rem) {
+    .card-container {
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 45rem) {
+    .card-container {
+        max-width: 33%;
+    }
+}
+  
+@media (min-width: 58rem) {
+    .card-container {
+        width: 25%;
+    }
+}
+
+@media (min-width: 75rem) {
+    .card-container {
+        width: 20%;
+    }
+}
+
+.card-container{
+    transition: all 0.5s ease-out;
+}

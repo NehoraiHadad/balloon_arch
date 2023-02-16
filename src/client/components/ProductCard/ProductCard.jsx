@@ -27,7 +27,7 @@ const Price = styled(Typography)`
 
 const ProductCard = () => {
   return (
-    <Card sx={{maxWidth:'250px'}} >
+    <Card  >
       <CardActionArea>
         <ProductImage component="img" image={image} alt="(: בלונים" />
         <CardContent>
