@@ -21,7 +21,9 @@ const router = createBrowserRouter([
             },   
         ],
     },
-]);
+],{
+    basename: "/balloon_arch",
+  });
 
 const TheRouter = () => {
     return(
