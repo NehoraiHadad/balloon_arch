@@ -1,51 +1,27 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-
-import styled from 'styled-components';
-
-import image from "../../../public/home_page_photo.png"
-
-
-const ProductImage = styled(CardMedia)`
-  height: 140px;
-`;
-
-const CardActionsContainer = styled(CardActions)`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Price = styled(Typography)`
-  font-size: 1.25rem;
-  font-weight: bold;
-`;
-
-const ProductCard = () => {
+const ProductCard = ({ image, title, description, price }) => {
   return (
-    <Card  >
+    <Card>
       <CardActionArea>
-        <ProductImage component="img" image={image} alt="(: בלונים" />
+        <CardMedia component="img" height="140" image={image} alt={title} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActionsContainer>
+      <CardActions sx={{justifyContent: 'space-between'}}>
         <Button size="small" color="primary">
           הוסף לסל
         </Button>
-        <Price variant="h6">300₪</Price>
-      </CardActionsContainer>
+        <Typography variant="h6">{price}₪</Typography>
+      </CardActions>
     </Card>
   );
 };
