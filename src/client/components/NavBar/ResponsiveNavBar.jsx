@@ -17,12 +17,12 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 
 import Logo from '../Logo/Photo/Logo';
 import NameOfCompany from '../Logo/Text/NameOfCompany';
-// import Cart from '../Cart/Cart';
+import Cart from '../Cart/Cart';
 
 
 const pages = [
   {component: 'בית', link: '/'}, 
-  {component: 'מוצרים', link: '/products'}, 
+  {component: 'קטגוריות', link: '/products'}, 
   {component: 'עלינו', link: 'aboutUs'},
 ];
 
@@ -80,13 +80,18 @@ function ResponsiveAppBar() {
             justifyContent: 'flex-start',
             width: '25%'
             }}>
+            <IconButton color="inherit" onClick={handleCartOpen}>
+              <Badge badgeContent={0} sx={{color: 'black'}}>
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
             <IconButton
               size="large"  
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              sx={{color: 'black'}}
             >
               <MenuIcon />
             </IconButton>
@@ -108,6 +113,7 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+            
               {pages.map((page) => (
                 <MenuItem key={page.component} onClick={handleCloseNavMenu}>
                   <Button sx={{'&:hover':{bgcolor:  'inherit'}}}>
@@ -131,6 +137,11 @@ function ResponsiveAppBar() {
             width: '25%',
             textDecoration: 'none' 
             }}>
+            <IconButton color="inherit" onClick={handleCartOpen}>
+              <Badge badgeContent={0} sx={{color: 'black'}}>
+                <ShoppingCartIcon />
+              </Badge>
+            </IconButton>
             {pages.map((page) => (
               <Button
                 key={page.component}
@@ -166,11 +177,6 @@ function ResponsiveAppBar() {
             justifyContent: 'flex-end',
             width: '25%'
           }}>
-            <IconButton color="inherit" onClick={handleCartOpen}>
-              <Badge badgeContent={0} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
             <Link to={"/"} className="logo"  >
               <Logo />
             </Link>

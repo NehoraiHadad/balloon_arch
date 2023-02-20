@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import { useState } from 'react';
+import { styled } from '@mui/material/styles';
+import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const useStyles = makeStyles((theme) => ({
-  drawer: {
-    width: 300,
-  },
+const StyledDrawer = styled(Drawer)(({ theme }) => ({
+  width: 300,
 }));
 
 function Cart() {
-  const classes = useStyles();
   const [cartItems, setCartItems] = useState([]);
   const [totalCost, setTotalCost] = useState(0);
   const [open, setOpen] = useState(false);
@@ -43,46 +40,44 @@ function Cart() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <IconButton onClick={() => setOpen(true)}>
         <ShoppingCartIcon />
       </IconButton>
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <div className={classes.drawer}>
-          <Typography variant="h5" gutterBottom>
-            Your Cart
-          </Typography>
-          {cartItems.length === 0 ? (
-            <Typography>Your cart is empty.</Typography>
-          ) : (
-            <List>
-              {cartItems.map((item) => (
-                <ListItem key={item.id}>
-                  <ListItemText
-                    primary={item.name}
-                    secondary={
-                      <React.Fragment>
-                        <Typography component="span" variant="body2" color="textSecondary">
-                          Quantity: {item.quantity}
-                        </Typography>
-                        <Typography component="span" variant="body2" color="textSecondary">
-                          Price: ${item.price.toFixed(2)}
-                        </Typography>
-                      </React.Fragment>
-                    }
-                  />
-                  <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
-                </ListItem>
-              ))}
-              <Typography variant="h6" gutterBottom>
-                Total cost: ${totalCost.toFixed(2)}
-              </Typography>
-              <button>Checkout</button>
-            </List>
-          )}
-        </div>
-      </Drawer>
-    </React.Fragment>
+      <StyledDrawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <Typography variant="h5" gutterBottom>
+          Your Cart
+        </Typography>
+        {cartItems.length === 0 ? (
+          <Typography>Your cart is empty.</Typography>
+        ) : (
+          <List>
+            {cartItems.map((item) => (
+              <ListItem key={item.id}>
+                <ListItemText
+                  primary={item.name}
+                  secondary={
+                    <>
+                      <Typography component="span" variant="body2" color="textSecondary">
+                        Quantity: {item.quantity}
+                      </Typography>
+                      <Typography component="span" variant="body2" color="textSecondary">
+                        Price: ${item.price.toFixed(2)}
+                      </Typography>
+                    </>
+                  }
+                />
+                <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+              </ListItem>
+            ))}
+            <Typography variant="h6" gutterBottom>
+              Total cost: ${totalCost.toFixed(2)}
+            </Typography>
+            <button>Checkout</button>
+          </List>
+        )}
+      </StyledDrawer>
+    </>
   );
 }
 
