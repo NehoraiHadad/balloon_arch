@@ -6,7 +6,7 @@ import Grid2 from '@mui/material/Unstable_Grid2';
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import { Grid } from "@mui/material";
 
-import {ContextCartProvider} from "../Context/ContectCart/ContextCartProvider";
+import {ContextCartProvider} from "../Context/ContextCart/ContextCartProvider";
 
 const Root = () => {
   const [navbarHeight, setNavbarHeight] = useState(56);

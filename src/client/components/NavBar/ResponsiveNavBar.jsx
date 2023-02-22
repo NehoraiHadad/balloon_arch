@@ -67,6 +67,7 @@ function ResponsiveAppBar() {
           <Box sx={{ 
             display: { xs: 'flex', md: 'none' } ,
             justifyContent: 'flex-start',
+            alignItems: 'center',
             width: '30%'
             }}>
 
@@ -120,6 +121,7 @@ function ResponsiveAppBar() {
           <Box sx={{ 
             display: { xs: 'none', md: 'flex' }, 
             justifyContent: 'flex-start',
+            alignItems: 'center',
             width: '30%',            
             textDecoration: 'none' 
             }}>

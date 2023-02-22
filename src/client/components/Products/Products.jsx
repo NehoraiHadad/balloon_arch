@@ -3,7 +3,7 @@ import './Products.css';
 import React, { useContext } from 'react';
 import { Grid } from '@mui/material';
 
-import {CartContext} from '../Context/ContectCart/ContextCartProvider';
+import {CartContext} from '../Context/ContextCart/ContextCartProvider';
 import ProductCard from '../ProductCard/ProductCard';
 import AllProductObjects from '../AllProductsObjects';
 
