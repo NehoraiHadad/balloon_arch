@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { useState, useContext } from 'react';
 import Drawer from '@mui/material/Drawer';
+import { Badge } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -8,25 +8,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const StyledDrawer = styled(Drawer)(({ theme }) => ({
-  width: 300,
-}));
+import {CartContext} from '../Context/ContectCart/ContextCartProvider';
+
 
 function Cart() {
-  const [cartItems, setCartItems] = useState([]);
-  const [totalCost, setTotalCost] = useState(0);
+  const {cartItems, setCartItems, totalCost, setTotalCost} = useContext(CartContext);
   const [open, setOpen] = useState(false);
-
-  const handleAddToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
-    if (existingItem) {
-      existingItem.quantity += 1;
-      setCartItems([...cartItems]);
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
-    }
-    setTotalCost(totalCost + item.price);
-  };
 
   const handleRemoveFromCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -41,15 +28,23 @@ function Cart() {
 
   return (
     <>
-      <IconButton onClick={() => setOpen(true)}>
-        <ShoppingCartIcon />
-      </IconButton>
-      <StyledDrawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Typography variant="h5" gutterBottom>
-          Your Cart
+    <IconButton onClick={() => setOpen(true)}>
+      <Badge badgeContent={4} color="secondary">
+        <ShoppingCartIcon sx={{color: 'black'}} />
+      </Badge>
+    </IconButton>
+
+      <Drawer dir='rtl' anchor="right"  open={open} onClose={() => setOpen(false)}
+        PaperProps={{
+          style:{
+            width:'20vw'
+          }
+        }}>
+        <Typography variant="h5" gutterBottom dir='rtl'>
+          העגלה שלך
         </Typography>
         {cartItems.length === 0 ? (
-          <Typography>Your cart is empty.</Typography>
+          <Typography>העגלה ריקה.</Typography>
         ) : (
           <List>
             {cartItems.map((item) => (
@@ -59,24 +54,24 @@ function Cart() {
                   secondary={
                     <>
                       <Typography component="span" variant="body2" color="textSecondary">
-                        Quantity: {item.quantity}
+                        כמות: {item.quantity}
                       </Typography>
                       <Typography component="span" variant="body2" color="textSecondary">
-                        Price: ${item.price.toFixed(2)}
+                        מחיר: ₪{item.price.toFixed(2)}
                       </Typography>
                     </>
                   }
                 />
-                <button onClick={() => handleRemoveFromCart(item)}>Remove</button>
+                <button onClick={() => handleRemoveFromCart(item)}>הסר</button>
               </ListItem>
             ))}
             <Typography variant="h6" gutterBottom>
-              Total cost: ${totalCost.toFixed(2)}
+              מחיר סופי: ₪{totalCost.toFixed(2)}
             </Typography>
-            <button>Checkout</button>
+            <button>לתשלום</button>
           </List>
         )}
-      </StyledDrawer>
+      </Drawer>
     </>
   );
 }

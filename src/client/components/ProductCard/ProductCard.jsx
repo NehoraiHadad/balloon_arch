@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
 
-const ProductCard = ({ image, title, description, price }) => {
+const ProductCard = ({ image, title, description, price, onAddToCart }) => {
   return (
     <Card>
       <CardActionArea>
@@ -17,7 +17,7 @@ const ProductCard = ({ image, title, description, price }) => {
         </CardContent>
       </CardActionArea>
       <CardActions sx={{justifyContent: 'space-between'}}>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" onClick={onAddToCart}>
           הוסף לסל
         </Button>
         <Typography variant="h6">{price}₪</Typography>
@@ -31,6 +31,7 @@ ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  onAddToCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

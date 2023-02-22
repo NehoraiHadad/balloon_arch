@@ -6,6 +6,8 @@ import Grid2 from '@mui/material/Unstable_Grid2';
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import { Grid } from "@mui/material";
 
+import {ContextCartProvider} from "../Context/ContectCart/ContextCartProvider";
+
 const Root = () => {
   const [navbarHeight, setNavbarHeight] = useState(56);
 
@@ -20,23 +22,28 @@ const Root = () => {
     };
   }, []);
 
+
   return(
     <>
-      <Grid2 container direction={'column'} alignItems={'stretch'} 
-        sx={{
+      <ContextCartProvider>
+      
+        <Grid2 container direction={'column'} alignItems={'stretch'} 
+          sx={{
             height:'100vh', 
             width: '100vw', 
-        }}>
-        <Grid item sx={{maxHeight: `${navbarHeight}px`}}>
-          <ResponsiveAppBar />
-        </Grid> 
-        <Grid item id="details"
-          sx={{ 
-                height: `calc(100vh - ${navbarHeight}px)`
-              }}>
-          <Outlet/>
-        </Grid>
-      </Grid2>
+          }}>
+          <Grid item sx={{maxHeight: `${navbarHeight}px`}}>
+            <ResponsiveAppBar />
+          </Grid> 
+          <Grid item id="details"
+            sx={{ 
+              height: `calc(100vh - ${navbarHeight}px)`
+            }}>
+            <Outlet />
+          </Grid>
+        </Grid2>
+
+      </ContextCartProvider>
     </>
   );
 }

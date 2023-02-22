@@ -1,8 +1,6 @@
 import './ResponsiveNavBar.css'
 
 import React from 'react';
-import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,6 +16,7 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import Logo from '../Logo/Photo/Logo';
 import NameOfCompany from '../Logo/Text/NameOfCompany';
 import Cart from '../Cart/Cart';
+
 
 
 const pages = [
@@ -52,16 +51,6 @@ function ResponsiveAppBar() {
   };
 
 
-  const [cartOpen, setCartOpen] = React.useState(false);
-
-  const handleCartOpen = () => {
-    setCartOpen(true);
-  };
-
-  const handleCartClose = () => {
-    setCartOpen(false);
-  };
-
   return (
     <AppBar dir='rtl' 
     position={useLocation().pathname === '/' ? 'static' : 'sticky'}
@@ -78,13 +67,10 @@ function ResponsiveAppBar() {
           <Box sx={{ 
             display: { xs: 'flex', md: 'none' } ,
             justifyContent: 'flex-start',
-            width: '25%'
+            width: '30%'
             }}>
-            <IconButton color="inherit" onClick={handleCartOpen}>
-              <Badge badgeContent={0} sx={{color: 'black'}}>
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+
+            <Cart  />
             <IconButton
               size="large"  
               aria-label="account of current user"
@@ -134,14 +120,12 @@ function ResponsiveAppBar() {
           <Box sx={{ 
             display: { xs: 'none', md: 'flex' }, 
             justifyContent: 'flex-start',
-            width: '25%',
+            width: '30%',            
             textDecoration: 'none' 
             }}>
-            <IconButton color="inherit" onClick={handleCartOpen}>
-              <Badge badgeContent={0} sx={{color: 'black'}}>
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
+
+            <Cart />
+
             {pages.map((page) => (
               <Button
                 key={page.component}
@@ -163,7 +147,7 @@ function ResponsiveAppBar() {
             <Box sx={{
               display: 'flex',
               justifyContent: 'center',
-              width: '50%',
+              width: '40%',
               letterSpacing: '.1rem',
               color: 'inherit',
               fontSize: 30
@@ -175,7 +159,7 @@ function ResponsiveAppBar() {
           <Box sx={{
             display: 'flex',
             justifyContent: 'flex-end',
-            width: '25%'
+            width: '30%'
           }}>
             <Link to={"/"} className="logo"  >
               <Logo />
