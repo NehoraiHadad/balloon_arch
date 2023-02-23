@@ -48,15 +48,15 @@ function Cart() {
       <Drawer dir='rtl' anchor="right"  open={open} onClose={() => setOpen(false)}
         PaperProps={{ 
           sx: {
+            minWidth: '360px',
             width: '100%',
             '@media (min-width: 600px)': {
-              maxWidth: '350px',
+              width: '360px',
             },
             '@media (min-width: 960px)': {
-              maxWidth: '350px',
+              width: '360px',
             },
             backgroundColor: '#f5f5f5' ,
-            padding:'3px'
           },
           
         }}>
@@ -71,44 +71,41 @@ function Cart() {
         {cartItems.length === 0 ? (
           <Typography>העגלה ריקה.</Typography>
         ) : (
-         
-          
-          <List sx={{ padding: '0', maxWidth: '500px', margin: '0 auto' }}>
+        
+        
+          <List sx={{ maxWidth: '500px', margin: '0 8px', padding: '0' }}>
             {cartItems.map((item) => (
-              <ListItem key={item.id} sx={{ borderBottom: '1px solid #e0e0e0', maxHeight: '95px' }}>
-                <Grid container alignItems="center" gap={1}>
-                  <Grid item >
+              <ListItem key={item.id} sx={{ borderBottom: '1px solid #e0e0e0', padding: '16px 8px' }}>
+                <Grid container alignItems="center" gap={1} width={'100%'}>
+                  <Grid item>
                     <Avatar
-                      src={item.image} 
+                      src={item.image}
                       alt={item.title}
                       sx={{ width: 85, height: 85 }}
-                      variant='rounded'
+                      variant="rounded"
                     />
                   </Grid>
-                  <Grid item height={'100%'} sx={{ flexGrow: 1}} >
-                    <Grid container direction={'column'} justifyContent={'space-between'} sx={{alignItems:'center'}}>
-                      <Typography variant="subtitle1">{item.title}</Typography>
-                      <Typography variant="body2" color="textSecondary">
+                  <Grid item height="85px" sx={{ flexGrow: 1 }}>
+                    <Grid container flexDirection={"column"} justifyContent="space-between" height={'100%'} width={'100%'} sx={{ alignItems: 'center' }}>
+                      <Typography variant="subtitle1"  textAlign={'center'} sx={{ fontWeight: 'bold', direction:'rtl' }}>
+                        {item.title}
+                      </Typography>
+                      <Typography variant="body2" paddingBottom={0.5} color="textSecondary">
                         מחיר: ₪{item.price.toFixed(2)}
                       </Typography>
                     </Grid>
                   </Grid>
-                  <Grid item >
-                    <Grid container spacing={1} justifyContent="flex-end" alignItems="center">
-                      <Grid item>
-                        <IconButton
-                          size="small"
-                          onClick={() => {
-                            handleRemoveFromCart(item)
-                          }}
-                        >
+                  <Grid item height={'85px'} >
+                    <Grid container gap={'3px'} height={'100%'} justifyContent="flex-end" alignItems="flex-end" marginTop={0} marginLeft={0}>
+                      <Grid >
+                        <IconButton size="small" onClick={() => handleRemoveFromCart(item)}>
                           <RemoveIcon />
                         </IconButton>
                       </Grid>
-                      <Grid item>
-                        <Typography variant="body2">{item.quantity}</Typography>
+                      <Grid >
+                        <Typography variant="body1" padding={0.5}>{item.quantity}</Typography>
                       </Grid>
-                      <Grid item>
+                      <Grid >
                         <IconButton
                           size="small"
                           onClick={() => {
@@ -121,12 +118,15 @@ function Cart() {
                           <AddIcon />
                         </IconButton>
                       </Grid>
-                      <Grid item>
-                        <IconButton size="small" onClick={() => 
-                          {
-                          setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-                          setTotalCost(totalCost - item.price);
-                          }}>
+                      <Grid  position="absolute" top={0} left={-5} sx={{ paddingTop: '3px' }}>
+                        <IconButton
+                          size="small"
+                          onClick={() => {
+                            const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+                            setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+                            setTotalCost(totalCost - (item.price * existingItem.quantity));
+                          }}
+                        >
                           <DeleteIcon />
                         </IconButton>
                       </Grid>
@@ -140,7 +140,9 @@ function Cart() {
                 <Typography variant="h6">מחיר סופי:</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h6" color="primary">₪{totalCost.toFixed(2)}</Typography>
+                <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold' }}>
+                  ₪{totalCost.toFixed(2)}
+                </Typography>
               </Grid>
             </Grid>
             <Grid container justifyContent="center" sx={{ paddingBottom: '12px' }}>
@@ -149,6 +151,7 @@ function Cart() {
               </Button>
             </Grid>
           </List>
+
           
 
         )}

@@ -152,7 +152,7 @@ function ResponsiveAppBar() {
               width: '40%',
               letterSpacing: '.1rem',
               color: 'inherit',
-              fontSize: 30
+              fontSize: 40
             }}
             className='companyNameNavBar'>
               <NameOfCompany  /> 

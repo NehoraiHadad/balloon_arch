@@ -6,9 +6,9 @@ const AllProductObjects =
         {
             id:1,
             image: Images.product1,
-            title: "Lizard",
+            title: "קשת בלונים ענקית",
             description: "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-            price: 300
+            price: 1500
         } ,
         {
             id:2,
