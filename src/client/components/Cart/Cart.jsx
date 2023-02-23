@@ -75,7 +75,7 @@ function Cart() {
         
           <List sx={{ maxWidth: '500px', margin: '0 8px', padding: '0' }}>
             {cartItems.map((item) => (
-              <ListItem key={item.id} sx={{ borderBottom: '1px solid #e0e0e0', padding: '16px 8px' }}>
+              <ListItem key={item.id} sx={{ borderBottom: '1px solid #e0e0e0', padding: '10px 8px' }}>
                 <Grid container alignItems="center" gap={1} width={'100%'}>
                   <Grid item>
                     <Avatar
@@ -85,52 +85,63 @@ function Cart() {
                       variant="rounded"
                     />
                   </Grid>
-                  <Grid item height="85px" sx={{ flexGrow: 1 }}>
-                    <Grid container flexDirection={"column"} justifyContent="space-between" height={'100%'} width={'100%'} sx={{ alignItems: 'center' }}>
-                      <Typography variant="subtitle1"  textAlign={'center'} sx={{ fontWeight: 'bold', direction:'rtl' }}>
-                        {item.title}
-                      </Typography>
-                      <Typography variant="body2" paddingBottom={0.5} color="textSecondary">
-                        מחיר: ₪{item.price.toFixed(2)}
-                      </Typography>
+                  <Grid item height={'85px'} width={'230px'}> 
+
+                    <Grid container height={'100%'} width={'100%'} justifyContent="space-between" alignContent={'space-between'}> 
+
+                      <Grid container flexDirection={"column"} width={'100%'} paddingTop={1} paddingRight={1.5}
+                        sx={{ alignItems: 'flex-start' }}>
+                        <Typography variant="h6"  textAlign={'center'} sx={{ direction:'rtl' }}>
+                          {item.title}
+                        </Typography>
+                        <Grid position="absolute" top={0} left={-5} 
+                          sx={{ paddingTop: '3px' }}>
+                          <IconButton
+                            size="small"
+                            onClick={() => {
+                              const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+                              setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+                              setTotalCost(totalCost - (item.price * existingItem.quantity));
+                            }}
+                            >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Grid>
+                      </Grid>
+                        <Grid container gap={'3px'} height={'50%'} marginTop={0} marginLeft={0} justifyContent={'space-around'} alignItems={'flex-end'}>
+                          <Grid container width={'50%'} justifyContent={'center'} >
+                            <Grid >
+                              <IconButton size="small" onClick={() => handleRemoveFromCart(item)}>
+                                <RemoveIcon />
+                              </IconButton>
+                            </Grid>
+                            <Grid >
+                              <Typography variant="body1" padding={0.8}>{item.quantity}</Typography>
+                            </Grid>
+                            <Grid >
+                              <IconButton
+                                size="small"
+                                onClick={() => {
+                                  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+                                  existingItem.quantity += 1;
+                                  setCartItems([...cartItems]);
+                                  setTotalCost(totalCost + item.price);
+                                }}
+                                >
+                                <AddIcon />
+                              </IconButton>
+                            </Grid>
+                          </Grid>
+
+                          <Grid item >
+                            <Typography variant="body2" paddingBottom={1.3} color="textSecondary">
+                              מחיר: {item.price.toFixed(2)} ₪
+                            </Typography>
+                          </Grid>
+                        </Grid>
+
                     </Grid>
-                  </Grid>
-                  <Grid item height={'85px'} >
-                    <Grid container gap={'3px'} height={'100%'} justifyContent="flex-end" alignItems="flex-end" marginTop={0} marginLeft={0}>
-                      <Grid >
-                        <IconButton size="small" onClick={() => handleRemoveFromCart(item)}>
-                          <RemoveIcon />
-                        </IconButton>
-                      </Grid>
-                      <Grid >
-                        <Typography variant="body1" padding={0.5}>{item.quantity}</Typography>
-                      </Grid>
-                      <Grid >
-                        <IconButton
-                          size="small"
-                          onClick={() => {
-                            const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
-                            existingItem.quantity += 1;
-                            setCartItems([...cartItems]);
-                            setTotalCost(totalCost + item.price);
-                          }}
-                        >
-                          <AddIcon />
-                        </IconButton>
-                      </Grid>
-                      <Grid  position="absolute" top={0} left={-5} sx={{ paddingTop: '3px' }}>
-                        <IconButton
-                          size="small"
-                          onClick={() => {
-                            const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
-                            setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-                            setTotalCost(totalCost - (item.price * existingItem.quantity));
-                          }}
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      </Grid>
-                    </Grid>
+
                   </Grid>
                 </Grid>
               </ListItem>

@@ -3,7 +3,7 @@ import './HomePage.css';
 import NameOfCompany from '../Logo/Text/NameOfCompany';
 import {Button, Box, Grid} from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
-
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
 
@@ -18,7 +18,9 @@ const HomePage = () => {
                 </Grid>
             </Grid>
             <Grid container marginBottom={'5rem'} direction={'column'} alignItems={'center'} >
-                <Button variant='contained' sx={[{bgcolor: "White", color: 'black', fontSize: 20 }, {'&:hover': {bgcolor: "grey", color: 'White'}} ]} size='medium'>להזמנות</Button>
+                <Link to={'/products'} style={{ textDecoration: 'none' }}>
+                    <Button variant='contained' sx={[{bgcolor: "White", color: 'black', fontSize: 20 }, {'&:hover': {bgcolor: "grey", color: 'White'}} ]} size='medium'>להזמנות</Button>
+                </Link>
             </Grid>
         </Grid2>
         );
