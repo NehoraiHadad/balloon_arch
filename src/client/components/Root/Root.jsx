@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 import Grid2 from '@mui/material/Unstable_Grid2';
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import { Grid } from "@mui/material";
+import {useLocation} from 'react-router-dom';
+
 
 import {ContextCartProvider} from "../Context/ContextCart/ContextCartProvider";
 
@@ -36,6 +38,8 @@ const Root = () => {
             <ResponsiveAppBar />
           </Grid> 
           <Grid item id="details"
+                position={useLocation().pathname === '/' ? 'static' : 'relative'}
+                marginTop='auto'
             sx={{ 
               height: `calc(100vh - ${navbarHeight}px)`
             }}>

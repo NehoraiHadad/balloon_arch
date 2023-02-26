@@ -89,7 +89,7 @@ function Cart() {
 
                     <Grid container height={'100%'} width={'100%'} justifyContent="space-between" alignContent={'space-between'}> 
 
-                      <Grid container flexDirection={"column"} width={'100%'} paddingTop={1} paddingRight={1.5}
+                      <Grid container flexDirection={"column"} width={'100%'} paddingTop={0.5} paddingRight={1.5}
                         sx={{ alignItems: 'flex-start' }}>
                         <Typography variant="h6"  textAlign={'center'} sx={{ direction:'rtl' }}>
                           {item.title}

@@ -4,7 +4,7 @@ import { Box } from '@mui/system';
 const NameOfCompany = () => {
     return (
         <Box className="nameOfCompany" >
-            עיצוביישן
+            עיצובישיין
             </Box>
     );
 }
