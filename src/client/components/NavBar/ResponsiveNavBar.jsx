@@ -71,8 +71,6 @@ function ResponsiveAppBar() {
             className='companyNameNavBar'>
               <NameOfCompany  /> 
             </Box> }
-      
-          
 
           <Box sx={{
             display: 'flex',
