@@ -1,28 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import {
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from '@mui/material';
 
 const ProductCard = ({ image, title, description, price, onAddToCart }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Card>
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={image} alt={title} />
-        <CardContent>
-          <Typography gutterBottom textAlign={'right'} variant="h5" component="div" sx={{direction: 'rtl'}}>
-            {title}
-          </Typography>
-          <Typography variant="body2" textAlign={'right'} color="text.secondary" sx={{direction: 'rtl'}}>
-            {description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions sx={{justifyContent: 'space-between'}}>
-        <Button size="small" color="primary" onClick={onAddToCart}>
-          הוסף לסל
-        </Button>
-        <Typography variant="h6">{price}₪</Typography>
-      </CardActions>
-    </Card>
+    <>
+      <Card>
+        <CardActionArea onClick={handleOpen}>
+          <CardMedia component="img" height="140" image={image} alt={title} />
+          <CardContent>
+            <Typography
+              gutterBottom
+              textAlign={'right'}
+              variant="h5"
+              component="div"
+              sx={{ direction: 'rtl' }}
+            >
+              {title}
+            </Typography>
+            <Typography
+              variant="body2"
+              textAlign={'right'}
+              color="text.secondary"
+              sx={{ direction: 'rtl' }}
+            >
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions sx={{ justifyContent: 'space-between' }}>
+          <Button size="small" color="primary" onClick={onAddToCart}>
+            הוסף לסל
+          </Button>
+          <Typography variant="h6">{price}₪</Typography>
+        </CardActions>
+      </Card>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle sx={{textAlign:'center'}}>{title}</DialogTitle>
+        <DialogContent>
+          <CardMedia component="img" image={image} alt={title} sx={{maxWidth: '650px', maxHeight: '75vh'}} />
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
 

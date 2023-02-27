@@ -7,12 +7,13 @@ const WhatsappButton = ({cartItems, totalCost}) => {
         const cartDetails = [];
 
         // Calculate the maximum length of the title, price, and quantity fields
+        const idLength = Math.max(...cartItems.map(item => item.id.toString().length));
         const titleLength = Math.max(...cartItems.map(item => item.title.length));
         const priceLength = Math.max(...cartItems.map(item => `$${item.price.toFixed(2)}`.length));
         const quantityLength = Math.max(...cartItems.map(item => item.quantity.toString().length));
 
         // Add the header row to the cartDetails array
-        const headerRow = `| ${'שם'.padEnd(titleLength + titleLength/2)} | ${'מחיר'.padEnd(priceLength + priceLength/2)} | ${'כמות'.padEnd(quantityLength + quantityLength/2)} |%0a`;
+        const headerRow = `| ${'סידורי'.padEnd(idLength + idLength/2)} | ${'שם'.padEnd(titleLength + titleLength/2)} | ${'מחיר'.padEnd(priceLength + priceLength/2)} | ${'כמות'.padEnd(quantityLength + quantityLength/2)} |%0a`;
         cartDetails.push(headerRow);
 
         // Add a separator row to the cartDetails array
@@ -21,8 +22,8 @@ const WhatsappButton = ({cartItems, totalCost}) => {
 
         // Add each item row to the cartDetails array
         cartItems.forEach(item => {
-            const { title, price, quantity } = item;
-            const itemRow = `| ${title.padEnd(titleLength)} | ₪${price.toFixed(2).padEnd(priceLength)} | ${quantity.toString().padEnd(quantityLength)} |%0a`;
+            const {id, title, price, quantity } = item;
+            const itemRow = `| ${id.toString().padEnd(idLength * 8)} | ${title.padEnd(titleLength)} | ₪${price.toFixed(2).padEnd(priceLength)} | ${quantity.toString().padEnd(quantityLength * 6)} |%0a`;
             cartDetails.push(itemRow);
         });
 
@@ -36,7 +37,7 @@ const WhatsappButton = ({cartItems, totalCost}) => {
 
         return message; 
     }
-    
+      
     return(
         <Link  
             to={`https://wa.me/+972547401660?text=${getCartDetails(cartItems , totalCost)}`} 
