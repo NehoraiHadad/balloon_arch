@@ -7,9 +7,9 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
-import { Grid} from '@mui/material';
+import { Grid, Switch} from '@mui/material';
 
-import WhathsappButton from './WhatsappButton'
+import WhatsappButton from './WhatsappButton'
 import CartItem from './CartItem'
 import {CartContext} from '../Context/ContextCart/ContextCartProvider';
 
@@ -17,6 +17,11 @@ import {CartContext} from '../Context/ContextCart/ContextCartProvider';
 function Cart() {
   const {cartItems, setCartItems, totalCost, setTotalCost} = useContext(CartContext);
   const [open, setOpen] = useState(false);
+  const [isMehadrin, setIsMehadrin] = useState(false);
+
+  const handleSwitchChange = (event) => {
+    setIsMehadrin(event.target.checked);
+  };
 
   const handleRemoveFromCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -67,7 +72,7 @@ function Cart() {
           </IconButton>
         </Grid>
         {cartItems.length === 0 ? (
-          <Typography>העגלה ריקה.</Typography>
+          <Typography padding={1}>העגלה שלך ריקה. מה תרצה להזמין?</Typography>
         ) : (
         
           <List sx={{ maxWidth: '500px', margin: '0 8px', padding: '0' }}>
@@ -76,6 +81,10 @@ function Cart() {
               <CartItem key={item.id} cartItems={cartItems} item={item} setCartItems={setCartItems} setTotalCost={setTotalCost} totalCost={totalCost} handleRemoveFromCart={handleRemoveFromCart} />
             ))}
 
+            <Grid item > 
+              <Switch checked={isMehadrin} onChange={handleSwitchChange} />
+              <Typography variant="caption">{isMehadrin ? 'מהדרין' : 'רגיל'}</Typography>
+            </Grid>
             <Grid container justifyContent="space-between" alignItems="center" sx={{ padding: '12px' }}>
               <Grid item>
                 <Typography variant="h6">מחיר סופי:</Typography>
@@ -87,17 +96,9 @@ function Cart() {
               </Grid>
             </Grid>
             <Grid container justifyContent="center" sx={{ paddingBottom: '12px' }}>
-            {/* <Link  to={`https://wa.me/0547401660?text=${JSON.stringify(cartItems)}`} style={{ textDecoration: 'none' }}> 
-              <Button variant="contained" color="primary" disableElevation>
-                לתשלום
-              </Button>
-              </Link> */}
-              <WhathsappButton cartItems={cartItems} totalCost={totalCost} />
+              <WhatsappButton cartItems={cartItems} totalCost={totalCost} isMehadrin={isMehadrin}/>
             </Grid>
           </List>
-
-          
-
         )}
       </Drawer>
     </>
