@@ -1,9 +1,9 @@
 import {Button} from '@mui/material'
 import { Link } from 'react-router-dom';
 
-const WhatsappButton = ({cartItems, totalCost}) => {
+const WhatsappButton = ({cartItems, totalCost, isMehadrin}) => {
     
-    function getCartDetails(cartItems , totalCost) {
+    function getCartDetails(cartItems , totalCost, isMehadrin) {
         const cartDetails = [];
 
         // Calculate the maximum length of the title, price, and quantity fields
@@ -29,6 +29,7 @@ const WhatsappButton = ({cartItems, totalCost}) => {
 
         // Add a final separator row to the cartDetails array
         cartDetails.push(separatorRow);
+        cartDetails.push(`כשרות: ${isMehadrin}`);
         cartDetails.push(`המחיר הסופי הוא : ₪${totalCost}`);
 
 
