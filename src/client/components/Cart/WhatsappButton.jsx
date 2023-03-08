@@ -29,7 +29,7 @@ const WhatsappButton = ({cartItems, totalCost, isMehadrin}) => {
 
         // Add a final separator row to the cartDetails array
         cartDetails.push(separatorRow);
-        cartDetails.push(`כשרות: ${isMehadrin}`);
+        cartDetails.push(`כשרות: ${isMehadrin ? 'מהדרין' : 'רגיל'}`);
         cartDetails.push(`המחיר הסופי הוא : ₪${totalCost}`);
 
 
