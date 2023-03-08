@@ -29,7 +29,7 @@ const WhatsappButton = ({cartItems, totalCost, isMehadrin}) => {
 
         // Add a final separator row to the cartDetails array
         cartDetails.push(separatorRow);
-        cartDetails.push(`כשרות: ${isMehadrin}`);
+        cartDetails.push(`כשרות: ${isMehadrin ? 'מהדרין' : 'רגיל'}`);
         cartDetails.push(`המחיר הסופי הוא : ₪${totalCost}`);
 
 
@@ -41,7 +41,7 @@ const WhatsappButton = ({cartItems, totalCost, isMehadrin}) => {
       
     return(
         <Link  
-            to={`https://wa.me/+972547401660?text=${getCartDetails(cartItems , totalCost)}`} 
+            to={`https://wa.me/+972547401660?text=${getCartDetails(cartItems , totalCost, isMehadrin)}`} 
             target='_blank'
             style={{ textDecoration: 'none' }}> 
             <Button variant="contained" color="primary" disableElevation>
