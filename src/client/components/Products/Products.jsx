@@ -11,7 +11,8 @@ const Products = () => {
   const {handleAddToCart} = useContext(CartContext);
 
   return (
-    <Grid container 
+    <Grid className='products-container' 
+     container 
       justifyContent="flex-end" 
       alignItems="center" 
       spacing={3} 
@@ -20,10 +21,9 @@ const Products = () => {
       marginTop={0} 
       marginLeft={0} 
       width={'100%'} 
-      style={{ backgroundColor: '#f5f5f5' }}
       >
       {AllProductObjects.map((product) => (
-        <Grid className='card-container' item key={product.id} paddingLeft={0} paddingTop={0}>
+        <Grid className='card-container' item key={product.id} paddingLeft={0} paddingTop={0} position={'relative'}>
           <ProductCard 
             image={product.image}
             title={product.title}
