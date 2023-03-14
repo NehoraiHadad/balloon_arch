@@ -1,0 +1,7 @@
+.container{
+    background-image: url('../../../public/bg_pages_photo.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover ;
+    height: 100%;
+}
