@@ -1,11 +1,13 @@
 import './AboutUs.css'
 
 import * as React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, IconButton , SvgIcon} from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, IconButton } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import {ReactComponent as Logo} from '../../../public/tiktok-icon.svg';
+import TikTokIcon from './TikTokIcon';
+
+
 
 const AboutUs = () => {
   return (
@@ -24,6 +26,8 @@ const AboutUs = () => {
       <Typography variant="body1" component="p" gutterBottom>
         We are a team of passionate developers who love to create amazing web applications using React and MUI.
       </Typography>
+      <Box>
+
       <Box
         sx={{
           display: 'flex',
@@ -32,20 +36,18 @@ const AboutUs = () => {
           justifyContent: 'space-evenly',
           marginY: 4,
         }}
-      >
+        >
         <IconButton variant="contained" color="primary" >
-            {<WhatsAppIcon />} 
+          {<WhatsAppIcon />} 
         </IconButton>
         <IconButton variant="contained" color="secondary">
           {<InstagramIcon />}
         </IconButton>
-        <IconButton variant="contained" color="info">
-            {/* <SvgIcon> */}
-                {<Logo />}
-            {/* </SvgIcon> */}
+        <IconButton variant="contained" sx={{color: 'black'}}>
+          {<TikTokIcon />}
         </IconButton>
         <IconButton variant="contained" color="success">
-            {<FacebookIcon />}
+          {<FacebookIcon />}
         </IconButton>
       </Box>
       <Box
@@ -66,7 +68,7 @@ const AboutUs = () => {
             alt="Contemplative Reptile"
             sx={{ borderRadiusTopLeft:'50%', borderRadiusTopRight:'50%' }}
             
-          />
+            />
           
 
 <CardContent sx={{ textAlign:'center' }}>
@@ -89,7 +91,7 @@ const AboutUs = () => {
     alt='Live From Space'
     sx={{ borderRadiusTopLeft:'50%', borderRadiusTopRight:'50%' }}
     
-  />
+    />
  
 
 <CardContent sx={{ textAlign:'center' }}>
@@ -103,6 +105,7 @@ const AboutUs = () => {
 
 </Card>
 
+    </Box>
 </Box>
 
 </Box>
