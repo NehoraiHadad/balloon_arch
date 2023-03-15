@@ -1,10 +1,10 @@
 import './AboutUs.css'
 
 import * as React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Link } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Link, IconButton } from '@mui/material';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook , faTiktok, faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons'
+import { faFacebook , faTiktok, faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
 
 
 const AboutUs = () => {
@@ -35,16 +35,28 @@ const AboutUs = () => {
           margin: 2,
         }}
         >
-        <Link sx={{color:'#4267B2', borderRadius: '50%'}}>
-          <FontAwesomeIcon icon={faFacebook} />
-        </Link>
-        <Link sx={{color: '#25D366'}}>
-          <FontAwesomeIcon icon={faWhatsapp} />
-        </Link>
-        <Link >
+        <IconButton component={Link} sx={{
+            "&:hover": {
+            backgroundColor: "inherit"
+            }, 
+            color: '#25D366',
+            fontSize: '4rem'
+            }}>
+            <FontAwesomeIcon icon={faFacebook} />
+        </IconButton >
+        <IconButton sx={{ 
+            "&:hover": {
+            backgroundColor: "inherit"
+            }, 
+            color: '#25D366', 
+            fontSize: '4rem'
+            }}>
+            <FontAwesomeIcon icon={faWhatsapp} />
+        </IconButton>
+        <Link sx={{color: '#FFFFFF', fontSize: '4rem'}}>
           <FontAwesomeIcon icon={faInstagram} />
         </Link>
-        <Link >
+        <Link sx={{color: '#FFFFFF', fontSize: '4rem'}}>
           <FontAwesomeIcon icon={faTiktok} />
         </Link>
       </Box>
