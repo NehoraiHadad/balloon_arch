@@ -1,7 +1,7 @@
 import './AboutUs.css'
 
 import * as React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Link, IconButton } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, IconButton } from '@mui/material';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook , faTiktok, faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
@@ -35,30 +35,56 @@ const AboutUs = () => {
           margin: 2,
         }}
         >
-        <IconButton component={Link} sx={{
+        <IconButton sx={{
+            bgcolor: "#ffffff",
+            height: "3.6rem",
+            width: "3.6rem",
             "&:hover": {
-            backgroundColor: "inherit"
+            backgroundColor: "inherit" 
             }, 
-            color: '#25D366',
-            fontSize: '4rem'
+            color: '#4267B2',
+            fontSize: '3.8rem'
             }}>
             <FontAwesomeIcon icon={faFacebook} />
         </IconButton >
         <IconButton sx={{ 
+          height: "3.8rem",
+          width: "3.8rem",
+          bgcolor: "#25D366",
+          color: '#ffffff', 
+          fontSize: '2.3rem',
             "&:hover": {
-            backgroundColor: "inherit"
+            backgroundColor: "#25D366",
+            color: 'black'
             }, 
-            color: '#25D366', 
-            fontSize: '4rem'
-            }}>
+          }}>
             <FontAwesomeIcon icon={faWhatsapp} />
-        </IconButton>
-        <Link sx={{color: '#FFFFFF', fontSize: '4rem'}}>
+        </IconButton >
+        <IconButton sx={{
+            background: `radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)`,
+            height: "3.8rem",
+            width: "3.8rem",
+            "&:hover": {
+            backgroundColor: "inherit",
+            color: '#25D366'
+            }, 
+            color: '#ffffff', 
+            fontSize: '2.3rem'
+            }}>
           <FontAwesomeIcon icon={faInstagram} />
-        </Link>
-        <Link sx={{color: '#FFFFFF', fontSize: '4rem'}}>
-          <FontAwesomeIcon icon={faTiktok} />
-        </Link>
+        </IconButton>
+        <IconButton sx={{ 
+            bgcolor: `black`,
+            height: "3.8rem",
+            width: "3.8rem",
+            color: '#ffffff', 
+            fontSize: '2.3rem',
+            "&:hover": {
+            backgroundColor: "black",
+            }, 
+            }}>
+          <FontAwesomeIcon icon={faTiktok} style={{filter: 'drop-shadow(2px 0px 0px #ff0050) drop-shadow(-2px -2px 0px #00f2ea)'}} />
+        </IconButton>
       </Box>
       <Box
         sx={{
