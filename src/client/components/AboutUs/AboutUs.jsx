@@ -1,7 +1,7 @@
 import './AboutUs.css'
 
 import * as React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, IconButton, Grid, Avatar } from '@mui/material';
+import { Box, Typography, Card, CardContent, IconButton, Grid, Avatar } from '@mui/material';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook , faTiktok, faInstagram, faWhatsapp} from '@fortawesome/free-brands-svg-icons';
@@ -14,21 +14,25 @@ const AboutUs = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        padding: '50px 10px 20px 10px',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         }}
     >
-      <Typography variant="h3" component="h1" gutterBottom>
-        About Us
-      </Typography>
-      <Typography variant="body1" component="p" gutterBottom>
-        We are a team of passionate developers who love to create amazing web applications using React and MUI.
-      </Typography>
+      <Box textAlign={'center'} margin={3}>
+        <Typography variant="h2" component="h1" gutterBottom dir='rtl'>
+          קצת עלינו...
+        </Typography>
+        <Typography variant="h6" component="p" gutterBottom dir='rtl' maxWidth={'50vw'}>
+          תביאו לי כבר טקסט לרשום - בנתיים יש פה סתם חירטוטים 😂🤣
+        </Typography>
+      </Box>
 
       <Box sx={{
         display:'grid',
         gridTemplateColumns:' 1fr 1fr 1fr',
-        width: '100%'
+        width: '100%',
+        marginBottom: '30px'
       }}>
         <Grid
           sx={{
@@ -38,16 +42,16 @@ const AboutUs = () => {
             justifyContent: 'center'
           }}
         >
-          <Card sx={{ width: '12rem', height:'14rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)'}}>
-          <Avatar alt="שמואל" src="../../../public/shmuel.png"
-            sx={{ width: 56, height: 56, position:'absolute' , top: '-28px', left: '4rem', overflow: 'visible'}}
+          <Card sx={{ width: '12rem', height:'14rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
+          <Avatar alt="שמואל" src="//../../../public/shmuel.png"
+            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(6rem - 40px)'}}
            />
-            <CardContent sx={{ textAlign:'center', justifyItems: 'center'}}>
+            <CardContent sx={{ textAlign:'center', justifyItems: 'center', marginTop:' 20%'}}>
               <Typography gutterBottom variant="h5" component="div">
-                שמואל מזרחי
+                הודיה מזרחי
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                בלונאי בכיר
+              <Typography variant="body1" color="text.secondary">
+                מעצבת ראשית
               </Typography>
             </CardContent>
           </Card>
@@ -125,41 +129,29 @@ const AboutUs = () => {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            alignItems: 'stretch',
-            justifyContent: 'space-evenly',
-            width: '60%',
-            marginY: 4,
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/live-from-space.jpg'
-              alt='Live From Space'
-              sx={{ borderRadiusTopLeft:'50%', borderRadiusTopRight:'50%' }}
-              
-              />
-          
-
-            <CardContent sx={{ textAlign:'center' }}>
-              <Typography gutterBottom variant='h5' component='div'>
-                Jane Doe
+          <Card sx={{ width: '12rem', height:'14rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
+          <Avatar alt="שמואל" src="../../../public/shmuel.png"
+            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(6rem - 40px)'}}
+           />
+            <CardContent sx={{ textAlign:'center', justifyItems: 'center', marginTop:' 20%'}}>
+              <Typography gutterBottom variant="h5" component="div">
+                שמואל מזרחי
               </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                UI Designer
+              <Typography variant="body1" color="text.secondary">
+                בלונאי בכיר
               </Typography>
             </CardContent>
-
           </Card>
-
         </Grid>
       </Box>
 
-</Box>
+    </Box>
 
 );
-
-};
+}
 
 export default AboutUs;
