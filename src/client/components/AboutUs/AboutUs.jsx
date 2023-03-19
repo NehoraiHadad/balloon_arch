@@ -23,17 +23,26 @@ const AboutUs = () => {
         <Typography variant="h2" component="h1" gutterBottom dir='rtl'>
           קצת עלינו...
         </Typography>
-        <Typography variant="h6" component="p" gutterBottom dir='rtl' maxWidth={'50vw'}>
+        <Typography variant="h6" component="p" gutterBottom dir='rtl' sx={{
+            maxWidth: '50vw', 
+            '@media (max-width: 480px)': {
+              maxWidth: '90vw'
+          }}}>
           תביאו לי כבר טקסט לרשום - בנתיים יש פה סתם חירטוטים 😂🤣
         </Typography>
       </Box>
 
       <Box sx={{
-        display:'grid',
-        gridTemplateColumns:' 1fr 1fr 1fr',
-        width: '100%',
-        marginBottom: '30px'
-      }}>
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          width: '100%',
+          margin: '30px 0',
+          '@media (max-width: 480px)': {
+            gridTemplateColumns: '1fr',
+            marginTop: '2rem',
+            gap: '3rem'
+          },
+        }}>
         <Grid
           sx={{
             display: 'flex',
@@ -42,9 +51,9 @@ const AboutUs = () => {
             justifyContent: 'center'
           }}
         >
-          <Card sx={{ width: '12rem', height:'14rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
-          <Avatar alt="שמואל" src="//../../../public/shmuel.png"
-            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(6rem - 40px)'}}
+          <Card sx={{ width: '14rem', height:'16rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
+          <Avatar alt="הודיה" src="//../../../public/hodaya.png"
+            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(7rem - 40px)'}}
            />
             <CardContent sx={{ textAlign:'center', justifyItems: 'center', marginTop:' 20%'}}>
               <Typography gutterBottom variant="h5" component="div">
@@ -65,7 +74,8 @@ const AboutUs = () => {
           }}
           >
           <Grid container item xs={6} sx={{
-            flexFlow: 'row'
+            flexFlow: 'row',
+            justifyContent: 'center'
           }}>
             <IconButton sx={{
               bgcolor: "#ffffff",
@@ -95,7 +105,8 @@ const AboutUs = () => {
           </IconButton >
           </Grid>
           <Grid container item xs={6} sx={{
-            flexFlow: 'row'
+            flexFlow: 'row',
+            justifyContent: 'center'
           }}>
             <IconButton sx={{
               background: `radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)`,
@@ -130,12 +141,15 @@ const AboutUs = () => {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            '@media (max-width: 480px)': {
+              marginTop: '40px'
+          }
           }}
         >
-          <Card sx={{ width: '12rem', height:'14rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
+          <Card sx={{ width: '14rem', height:'16rem', textAlign:'-webkit-center', position: 'relative', background: 'rgba(235,236,236, 50%)', overflow: 'visible', borderRadius: `20px`}}>
           <Avatar alt="שמואל" src="../../../public/shmuel.png"
-            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(6rem - 40px)'}}
+            sx={{ width: 80, height: 80, position:'absolute' , top: '-40px', left: 'calc(7rem - 40px)'}}
            />
             <CardContent sx={{ textAlign:'center', justifyItems: 'center', marginTop:' 20%'}}>
               <Typography gutterBottom variant="h5" component="div">
