@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/balloon_arch/static/css/main.27700005.css",
-    "main.js": "/balloon_arch/static/js/main.a74b2617.js",
+    "main.css": "/balloon_arch/static/css/main.8ae2c132.css",
+    "main.js": "/balloon_arch/static/js/main.0919b3fa.js",
     "static/js/787.7b8e78a5.chunk.js": "/balloon_arch/static/js/787.7b8e78a5.chunk.js",
     "static/media/home_page_photo.png": "/balloon_arch/static/media/home_page_photo.afe0ac8b5cfc9694d247.png",
+    "static/media/bg_pages_photo.png": "/balloon_arch/static/media/bg_pages_photo.d2bb0dbd68b90503a957.png",
     "static/media/logo.png": "/balloon_arch/static/media/logo.affbaa9d65eb66d86a5d.png",
     "static/media/2.jpg": "/balloon_arch/static/media/2.1d68fac50c9bf3eaf91f.jpg",
     "static/media/13.jpg": "/balloon_arch/static/media/13.ecedfb5c314674723fd1.jpg",
@@ -24,12 +25,12 @@
     "static/media/6.jpg": "/balloon_arch/static/media/6.5fb5358c97eedc27024e.jpg",
     "static/media/SN_balon.otf": "/balloon_arch/static/media/SN_balon.946e762d204394a8b0bd.otf",
     "index.html": "/balloon_arch/index.html",
-    "main.27700005.css.map": "/balloon_arch/static/css/main.27700005.css.map",
-    "main.a74b2617.js.map": "/balloon_arch/static/js/main.a74b2617.js.map",
+    "main.8ae2c132.css.map": "/balloon_arch/static/css/main.8ae2c132.css.map",
+    "main.0919b3fa.js.map": "/balloon_arch/static/js/main.0919b3fa.js.map",
     "787.7b8e78a5.chunk.js.map": "/balloon_arch/static/js/787.7b8e78a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.27700005.css",
-    "static/js/main.a74b2617.js"
+    "static/css/main.8ae2c132.css",
+    "static/js/main.0919b3fa.js"
   ]
 }
