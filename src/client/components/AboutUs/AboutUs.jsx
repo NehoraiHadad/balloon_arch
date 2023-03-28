@@ -43,7 +43,7 @@ const AboutUs = () => {
           },
         }}>
 
-        <PersonCard name = 'הודיה' title = 'מעצבת ראשית' photo = 'url'/>
+        <PersonCard name = 'הודיה' title = 'מעצבת בכירה' photo = 'url'/>
 
         <SocialIcons />
 
