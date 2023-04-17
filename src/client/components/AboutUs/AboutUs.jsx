@@ -1,11 +1,10 @@
 import './AboutUs.css'
 
 import * as React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, IconButton , SvgIcon} from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import {ReactComponent as Logo} from '../../../public/tiktok-icon.svg';
+import { Box, Typography} from '@mui/material';
+
+import PersonCard from './PersonCard';
+import SocialIcons from './SocialIcons';
 
 const AboutUs = () => {
   return (
@@ -14,101 +13,47 @@ const AboutUs = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        padding: '50px 10px 20px 10px',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         }}
     >
-      <Typography variant="h3" component="h1" gutterBottom>
-        About Us
-      </Typography>
-      <Typography variant="body1" component="p" gutterBottom>
-        We are a team of passionate developers who love to create amazing web applications using React and MUI.
-      </Typography>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-          marginY: 4,
-        }}
-      >
-        <IconButton variant="contained" color="primary" >
-            {<WhatsAppIcon />} 
-        </IconButton>
-        <IconButton variant="contained" color="secondary">
-          {<InstagramIcon />}
-        </IconButton>
-        <IconButton variant="contained" color="info">
-            {/* <SvgIcon> */}
-                {<Logo />}
-            {/* </SvgIcon> */}
-        </IconButton>
-        <IconButton variant="contained" color="success">
-            {<FacebookIcon />}
-        </IconButton>
+      <Box textAlign={'center'} margin={3}>
+        <Typography variant="h2" component="h1" gutterBottom dir='rtl'>
+          קצת עלינו...
+        </Typography>
+        <Typography variant="h6" component="p" gutterBottom dir='rtl' sx={{
+            maxWidth: '50vw', 
+            '@media (max-width: 480px)': {
+              maxWidth: '90vw'
+          }}}>
+          תביאו לי כבר טקסט לרשום - בנתיים יש פה סתם חירטוטים 😂🤣
+        </Typography>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'stretch',
-          justifyContent: 'space-evenly',
-          width: '80%',
-          marginY: 4,
-        }}
-      >
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            alt="Contemplative Reptile"
-            sx={{ borderRadiusTopLeft:'50%', borderRadiusTopRight:'50%' }}
-            
-          />
-          
 
-<CardContent sx={{ textAlign:'center' }}>
-            <Typography gutterBottom variant="h5" component="div">
-              John Doe
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lead Developer
-            </Typography>
-          </CardContent>
-         
-    
-</Card>
+      <Box sx={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr 1fr',
+          width: '100%',
+          margin: '30px 0',
+          '@media (max-width: 480px)': {
+            gridTemplateColumns: '1fr',
+            marginTop: '2rem',
+            gap: '3rem'
+          },
+        }}>
 
-<Card sx={{ maxWidth: 345 }}>
-  <CardMedia
-    component='img'
-    height='140'
-    image='/static/images/cards/live-from-space.jpg'
-    alt='Live From Space'
-    sx={{ borderRadiusTopLeft:'50%', borderRadiusTopRight:'50%' }}
-    
-  />
- 
+        <PersonCard name = 'הודיה' title = 'מעצבת בכירה' photo = 'url'/>
 
-<CardContent sx={{ textAlign:'center' }}>
-    <Typography gutterBottom variant='h5' component='div'>
-      Jane Doe
-    </Typography>
-    <Typography variant='body2' color='text.secondary'>
-      UI Designer
-    </Typography>
-  </CardContent>
+        <SocialIcons />
 
-</Card>
+        <PersonCard name = 'שמואל' title = 'בלונאי ראשי' photo = 'url'/>
 
-</Box>
+      </Box>
 
-</Box>
+    </Box>
 
 );
-
-};
+}
 
 export default AboutUs;
