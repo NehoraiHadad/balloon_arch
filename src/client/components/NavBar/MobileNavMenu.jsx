@@ -66,10 +66,9 @@ const MobileNavMenu = ({
         }}
         open={Boolean(anchorElNav)}
         onClose={handleCloseNavMenu}
+        MenuListProps={{ disablePadding: true }}
         sx={{
           display: { xs: "block", md: "none" },
-          paddingTop: 0,
-          paddingBottom: 0,
         }}
       >
         {pages.map((page) => (
