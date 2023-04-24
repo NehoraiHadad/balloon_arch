@@ -1,7 +1,7 @@
 import './HomePage.css';
 
 import NameOfCompany from '../Logo/Text/NameOfCompany';
-import {Button, Box, Grid} from '@mui/material';
+import {Button, Grid, Typography} from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const HomePage = () => {
                     <NameOfCompany/>
                 </Grid>
                 <Grid item>
-                    <Box className='ParagraphHomePag'>שדרג את האירוע הבא שלך עם קשתות הבלונים הניתנות להתאמה אישית שלנו, מושלמות לכל אירוע!</Box>
+                    <Typography letterSpacing={0.3} className='ParagraphHomePag'>שדרג את האירוע הבא שלך עם קשתות הבלונים הניתנות להתאמה אישית שלנו, מושלמות לכל אירוע!</Typography>
                 </Grid>
             </Grid>
             <Grid container marginBottom={'5rem'} direction={'column'} alignItems={'center'} >

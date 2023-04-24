@@ -90,7 +90,7 @@ function Cart() {
                 <Typography variant="h6">מחיר סופי:</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h6" color="primary" sx={{ fontWeight: 'bold' }}>
+                <Typography variant="h6" color="primary" sx={{ fontWeight: '500' }}>
                   ₪{totalCost.toFixed(2)}
                 </Typography>
               </Grid>

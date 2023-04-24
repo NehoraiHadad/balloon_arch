@@ -33,7 +33,8 @@ const ProductCard = ({ image, title, description, price, onAddToCart }) => {
             <Typography
               gutterBottom
               textAlign={'right'}
-              variant="h5"
+              variant="h6"
+              fontWeight={500}
               component="div"
               sx={{ direction: 'rtl' }}
             >
@@ -42,6 +43,7 @@ const ProductCard = ({ image, title, description, price, onAddToCart }) => {
             <Typography
               variant="body2"
               textAlign={'right'}
+              fontWeight={300}
               color="text.secondary"
               sx={{ direction: 'rtl' }}
             >
@@ -49,11 +51,11 @@ const ProductCard = ({ image, title, description, price, onAddToCart }) => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions sx={{ justifyContent: 'space-between' }}>
+        <CardActions sx={{ justifyContent: 'space-between', padding: '8px 16px' }}>
           <Button size="small" color="primary" onClick={onAddToCart}>
             הוסף לסל
           </Button>
-          <Typography variant="h6">{price}₪</Typography>
+          <Typography fontWeight={400} variant="h6">{price}₪</Typography>
         </CardActions>
       </Card>
       <Dialog open={open} onClose={handleClose} sx={{backgroundImage:'linear-gradient(to left, rgba(238,130,238,0.3), rgba(75,0,130,0.3), rgba(0,0,255,0.3), rgba(0,128,0,0.3), rgba(255,255,0,0.3), rgba(255,0,0,0.3))', bgcolor: 'none'}}>

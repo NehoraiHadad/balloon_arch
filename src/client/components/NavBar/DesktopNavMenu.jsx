@@ -13,14 +13,14 @@ const DesktopNavMenu = ({ pages }) => {
     textDecoration: 'none',
     color: 'black',
     fontSize: '1.1rem',
-    fontWeight:'bold'
+    fontWeight:'400'
   }
   
   let activeStyle = {
     textDecoration: 'none', 
     color: "red",
     fontSize: '1.1rem',
-    fontWeight:'bold'
+    fontWeight:'500'
   };
 
   return (

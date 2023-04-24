@@ -14,14 +14,14 @@ const MobileNavMenu = ({ pages, anchorElNav, handleCloseNavMenu, handleOpenNavMe
     textDecoration: 'none',
     color: 'black',
     fontSize: '1.1rem',
-    fontWeight: 'bold'
+    fontWeight: '500'
   };
 
   let activeStyle = {
     textDecoration: 'none',
     color: 'red',
     fontSize: '1.1rem',
-    fontWeight: 'bold'
+    fontWeight: '500'
   };
 
   const theme = useTheme();
