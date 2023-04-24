@@ -1,13 +1,8 @@
-import React from "react"
-
-import "./App.css";
-
-import TheRouter from './client/components/TheRouter';
+import React from "react";
+import TheRouter from "./client/components/TheRouter";
 
 function App() {
-  return (
-    <TheRouter/>
-  );
+  return <TheRouter />;
 }
 
 export default App;
