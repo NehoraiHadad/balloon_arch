@@ -1,4 +1,5 @@
 const Images = {
+    companyName: require('./../../../public/companyName.png'),
     product1: require('./../../../public/products/1.jpg'),
     product2: require('./../../../public/products/2.jpg'),
     product3: require('./../../../public/products/3.jpg'),
