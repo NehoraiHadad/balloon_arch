@@ -27,7 +27,10 @@ const WhatsappButton = ({ cartItems, totalCost, isMehadrin }) => {
 
     // Add a separator row to the cartDetails array
     const separatorRow = `${"-".repeat(
-      titleLength + titleLength + priceLength
+      titleLength +
+        titleLength +
+        priceLength +
+        (titleLength + titleLength + priceLength) / 4
     )}%0a`;
     cartDetails.push(separatorRow);
 
@@ -44,11 +47,11 @@ const WhatsappButton = ({ cartItems, totalCost, isMehadrin }) => {
 
     // Add a final separator row to the cartDetails array
     cartDetails.push(separatorRow);
-    cartDetails.push(`כשרות: ${isMehadrin ? "מהדרין" : "רגיל"}`);
-    cartDetails.push(`המחיר הסופי הוא : ₪${totalCost}`);
+    const isMehadrinRow = `כשרות: ${isMehadrin ? "מהדרין" : "רגיל"}%0a%0a`;
+    const totalCostRow = `המחיר הסופי הוא : ₪${totalCost}`;
 
     // Construct the final message string by joining the cartDetails array
-    const message = `רשימת הפריטים בעגלת הקניות שלך: %0a%0a ${cartDetails}`;
+    const message = `רשימת הפריטים בעגלת הקניות שלך: %0a%0a ${cartDetails} ${isMehadrinRow} ${totalCostRow}`;
 
     return message;
   }
@@ -63,8 +66,12 @@ const WhatsappButton = ({ cartItems, totalCost, isMehadrin }) => {
       target="_blank"
       style={{ textDecoration: "none" }}
     >
-      <Button variant="contained" color="primary" disableElevation>
-        לתשלום
+      <Button
+        variant="contained"
+        disableElevation
+        sx={{ bgcolor: "#075E54", "&:hover": { bgcolor: "#05453d" } }}
+      >
+        שליחת הזמנה
       </Button>
     </Link>
   );

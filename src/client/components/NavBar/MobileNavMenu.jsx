@@ -16,6 +16,9 @@ const MobileNavMenu = ({
   handleOpenNavMenu,
 }) => {
   let style = {
+    width: "100%",
+    height: "100%",
+    padding: '8px',
     textDecoration: "none",
     color: "black",
     fontSize: "1.1rem",
@@ -23,6 +26,7 @@ const MobileNavMenu = ({
   };
 
   let activeStyle = {
+    padding: '8px',
     textDecoration: "none",
     color: "red",
     fontSize: "1.1rem",
@@ -62,19 +66,30 @@ const MobileNavMenu = ({
         }}
         open={Boolean(anchorElNav)}
         onClose={handleCloseNavMenu}
+        MenuListProps={{ disablePadding: true }}
         sx={{
           display: { xs: "block", md: "none" },
-          paddingTop: 0,
-          paddingBottom: 0,
         }}
       >
         {pages.map((page) => (
           <MenuItem
             key={page.component}
             onClick={handleCloseNavMenu}
-            sx={{ justifyContent: "center", padding: "0 8px" }}
+            sx={{
+              justifyContent: "center",
+              padding: "0",
+            }}
           >
-            <Button sx={{ "&:hover": { bgcolor: "inherit" } }}>
+            <Button 
+              sx={{
+                padding: 0,
+                width: "100%",
+                height: "100%",
+                "&:hover": {
+                  bgcolor: "transparent",
+                },
+              }}
+            >
               <NavLink
                 to={page.link}
                 style={({ isActive }) => (isActive ? activeStyle : style)}

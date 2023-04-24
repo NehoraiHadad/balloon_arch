@@ -8,10 +8,12 @@ import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
 import { Grid, Switch } from "@mui/material";
-
 import WhatsappButton from "./WhatsappButton";
 import CartItem from "./CartItem";
 import { CartContext } from "../Context/ContextCart/ContextCartProvider";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 function Cart() {
   const { cartItems, setCartItems, totalCost, setTotalCost } =
@@ -128,6 +130,18 @@ function Cart() {
               justifyContent="center"
               sx={{ paddingBottom: "12px" }}
             >
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "red",
+                  fontWeight: "bold",
+                  mt: 2,
+                  padding: "1rem",
+                }}
+              >
+                שימו לב! אנחנו לא מציעים כרגע תשלום ישיר באתר שלנו. לביצוע הזמנה, לחצו על כפתור "שליחת הזמנה" הוא יקפיץ אתכם ל{" "}
+                <FontAwesomeIcon color="#075E54" icon={faWhatsapp} /> עם תוכן הסל שלכם ישר אלינו. תודה!
+              </Typography>
               <WhatsappButton
                 cartItems={cartItems}
                 totalCost={totalCost}
