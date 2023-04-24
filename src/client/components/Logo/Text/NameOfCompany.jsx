@@ -1,12 +1,15 @@
-import './NameOfCompany.css'
-import { Box } from '@mui/system';
+import { Box } from "@mui/system";
+import Images from "../../Images/Images";
 
 const NameOfCompany = () => {
-    return (
-        <Box className="nameOfCompany" >
-            עיצובישיין
-            </Box>
-    );
-}
+  return (
+    <Box
+      component={"img"}
+      className="nameOfCompany"
+      alt="עיצובישיין"
+      src={Images.companyName}
+    ></Box>
+  );
+};
 
 export default NameOfCompany;

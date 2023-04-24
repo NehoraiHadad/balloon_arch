@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CloseIcon from "@mui/icons-material/Close";
 import { Grid, Switch } from "@mui/material";
-
 import WhatsappButton from "./WhatsappButton";
 import CartItem from "./CartItem";
 import { CartContext } from "../Context/ContextCart/ContextCartProvider";
@@ -120,7 +119,7 @@ function Cart() {
                 <Typography
                   variant="h6"
                   color="primary"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: "500" }}
                 >
                   ₪{totalCost.toFixed(2)}
                 </Typography>

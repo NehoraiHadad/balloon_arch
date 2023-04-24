@@ -22,7 +22,7 @@ const MobileNavMenu = ({
     textDecoration: "none",
     color: "black",
     fontSize: "1.1rem",
-    fontWeight: "bold",
+    fontWeight: "500",
   };
 
   let activeStyle = {
@@ -30,7 +30,7 @@ const MobileNavMenu = ({
     textDecoration: "none",
     color: "red",
     fontSize: "1.1rem",
-    fontWeight: "bold",
+    fontWeight: "500",
   };
 
   const theme = useTheme();
