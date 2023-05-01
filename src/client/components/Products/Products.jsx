@@ -5,6 +5,7 @@ import { Grid } from "@mui/material";
 import { CartContext } from "../Context/ContextCart/ContextCartProvider";
 import ProductCard from "../ProductCard/ProductCard";
 import AllProductObjects from "../AllProductsObjects";
+import Categories from "../Categories/Categories";
 
 const Products = () => {
   const { handleAddToCart } = useContext(CartContext);
@@ -22,6 +23,7 @@ const Products = () => {
       marginLeft={0}
       width={"100%"}
     >
+      <Categories/>
       {AllProductObjects.map((product) => (
         <Grid
           className="card-container"
