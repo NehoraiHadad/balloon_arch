@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/balloon_arch/static/css/main.fd6204b5.css",
-    "main.js": "/balloon_arch/static/js/main.efbd47b3.js",
+    "main.css": "/balloon_arch/static/css/main.1b914526.css",
+    "main.js": "/balloon_arch/static/js/main.9ceeaa88.js",
     "static/js/787.7b8e78a5.chunk.js": "/balloon_arch/static/js/787.7b8e78a5.chunk.js",
     "static/media/home_page_photo.png": "/balloon_arch/static/media/home_page_photo.afe0ac8b5cfc9694d247.png",
     "static/media/bg_pages_photo.png": "/balloon_arch/static/media/bg_pages_photo.d2bb0dbd68b90503a957.png",
@@ -24,12 +24,12 @@
     "static/media/4.jpg": "/balloon_arch/static/media/4.467493130ff2befa2eea.jpg",
     "static/media/6.jpg": "/balloon_arch/static/media/6.5fb5358c97eedc27024e.jpg",
     "index.html": "/balloon_arch/index.html",
-    "main.fd6204b5.css.map": "/balloon_arch/static/css/main.fd6204b5.css.map",
-    "main.efbd47b3.js.map": "/balloon_arch/static/js/main.efbd47b3.js.map",
+    "main.1b914526.css.map": "/balloon_arch/static/css/main.1b914526.css.map",
+    "main.9ceeaa88.js.map": "/balloon_arch/static/js/main.9ceeaa88.js.map",
     "787.7b8e78a5.chunk.js.map": "/balloon_arch/static/js/787.7b8e78a5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd6204b5.css",
-    "static/js/main.efbd47b3.js"
+    "static/css/main.1b914526.css",
+    "static/js/main.9ceeaa88.js"
   ]
 }
