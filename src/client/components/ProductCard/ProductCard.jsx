@@ -26,9 +26,9 @@ const ProductCard = ({ image, title, description, price, onAddToCart }) => {
 
   return (
     <>
-      <Card>
+      <Card sx={{height: '350px', width: "100%", display:'flex', justifyContent:'space-between', flexDirection: 'column'}}>
         <CardActionArea onClick={handleOpen}>
-          <CardMedia component="img" height="140" image={image} alt={title} />
+          <CardMedia component="img" height={140} image={image} alt={title} />
           <CardContent>
             <Typography
               gutterBottom

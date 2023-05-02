@@ -12,13 +12,25 @@ const categories = [
   { id: "5", name: "חגים" },
   { id: "6", name: "מארזים" },
   { id: "7", name: "קשתות בלונים" },
-  { id: "8", name: "יום נישואין" },
+  { id: "8", name: "יום נישואים" },
   { id: "9", name: "מתנה ללידה" },
   { id: "10", name: "הצעת נישואין" },
 ];
 
 function Categories() {
   const [selectedCategory, setSelectedCategory] = useState("1");
+
+  const [backgroundColor, setBackgroundColor] = useState('#6fa6ae');
+
+  const handleMouseEnter = () => {
+    const colors = ['#dfcbbd', '#deadd9', '#b4bfda', '#9dc3ce', '#b1d0b8', '#b1d0b8', '#a9d0ba', '#6fa6ae'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    setBackgroundColor(randomColor);
+  };
+
+  const handleMouseLeave = () => {
+    setBackgroundColor('#6fa6ae');
+  };
 
   function handleCategorySelect(category) {
     setSelectedCategory(category.id);
@@ -32,29 +44,58 @@ function Categories() {
       breakpoints: {
         320: {
           slidesPerView: 2,
+          navigation: {
+            enabled: false,
+            hiddenClass: "320",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         },
         480: {
           slidesPerView: 3,
+          navigation: {
+            enabled: true,
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         },
         640: {
           slidesPerView: 4,
+          navigation: {
+            enabled: true,
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         },
         927: {
           slidesPerView: 5,
+          navigation: {
+            enabled: true,
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         },
         1200: {
           slidesPerView: 6,
+          navigation: {
+            enabled: true,
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
         },
       },
       injectStyles: [
         `
-        .swiper{
+        .swiper {
           max-width: 100vw;
           padding: 0 2.5rem
-        },
-        .swiper-button-next{
-          @media (max-width: 320px){
-            display: none
+        } 
+        @media screen and (max-width: 480px){
+          .swiper-button-prev {
+            display: none;
+          }
+          .swiper-button-next {
+            display: none;
           }
         }
       `,
@@ -76,15 +117,17 @@ function Categories() {
         {categories.map((category) => (
           <swiper-slide key={category.id}>
             <Card
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               sx={{
                 margin: "8px",
                 borderRadius: "0.75rem",
                 backgroundColor:
-                  selectedCategory === category.id ? "#fce4ec" : "white",
+                  selectedCategory === category.id ? backgroundColor : "white",
                 cursor: "pointer",
                 transition: "background-color 0.2s ease-out",
                 "&:hover": {
-                  backgroundColor: "#fce4ec",
+                  backgroundColor: backgroundColor,
                 },
               }}
               onClick={() => handleCategorySelect(category)}
