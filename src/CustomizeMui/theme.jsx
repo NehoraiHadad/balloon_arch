@@ -9,6 +9,17 @@ const theme = createTheme({
       "sans-serif",
     ].join(","),
   },
+  components: {
+    MuiCardContent: {
+      styleOverrides: {
+        root: {
+          '&:last-child': {
+            paddingBottom: '8px',
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

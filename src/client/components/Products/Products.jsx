@@ -11,6 +11,8 @@ const Products = () => {
   const { handleAddToCart } = useContext(CartContext);
 
   return (
+    <>
+    <Categories/>
     <Grid
       className="products-container"
       container
@@ -22,8 +24,7 @@ const Products = () => {
       marginTop={0}
       marginLeft={0}
       width={"100%"}
-    >
-      <Categories/>
+      >
       {AllProductObjects.map((product) => (
         <Grid
           className="card-container"
@@ -43,6 +44,7 @@ const Products = () => {
         </Grid>
       ))}
     </Grid>
+      </>
   );
 };
 

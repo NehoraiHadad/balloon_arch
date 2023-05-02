@@ -5,7 +5,6 @@ import Products from "./Products/Products";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import Root from "./Root/Root";
 import AboutUs from "./AboutUs/AboutUs";
-import Categories from "./Categories/Categories";
 
 const router = createBrowserRouter(
   [

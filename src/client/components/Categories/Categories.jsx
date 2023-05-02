@@ -5,21 +5,20 @@ import { register } from "swiper/element/bundle";
 register();
 
 const categories = [
-  { id: "1", name: "Birthday" },
-  { id: "2", name: "Wedding" },
-  { id: "3", name: "Graduation" },
-  { id: "4", name: "Baby Shower" },
-  { id: "5", name: "Holiday" },
-  { id: "6", name: "Birthday" },
-  { id: "7", name: "Wedding" },
-  { id: "8", name: "Graduation" },
-  { id: "9", name: "Baby Shower" },
-  { id: "10", name: "Holiday" },
+  { id: "1", name: "כל המוצרים" },
+  { id: "2", name: "חתונות" },
+  { id: "3", name: "ימי הולדת" },
+  { id: "4", name: "מתנות" },
+  { id: "5", name: "חגים" },
+  { id: "6", name: "מארזים" },
+  { id: "7", name: "קשתות בלונים" },
+  { id: "8", name: "יום נישואין" },
+  { id: "9", name: "מתנה ללידה" },
+  { id: "10", name: "הצעת נישואין" },
 ];
 
 function Categories() {
-  
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("1");
 
   function handleCategorySelect(category) {
     setSelectedCategory(category.id);
@@ -30,15 +29,34 @@ function Categories() {
     const swiperContainer = swiperElRef.current;
     const params = {
       navigation: true,
-      pagination: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+        },
+        480: {
+          slidesPerView: 3,
+        },
+        640: {
+          slidesPerView: 4,
+        },
+        927: {
+          slidesPerView: 5,
+        },
+        1200: {
+          slidesPerView: 6,
+        },
+      },
       injectStyles: [
         `
         .swiper{
-          width: 96vw
+          max-width: 100vw;
+          padding: 0 2.5rem
+        },
+        .swiper-button-next{
+          @media (max-width: 320px){
+            display: none
+          }
         }
-        .swiper-pagination-bullets {
-          display: none;
-      }
       `,
       ],
     };
@@ -48,22 +66,21 @@ function Categories() {
   }, []);
 
   return (
-    <Grid container marginTop={3} marginLeft={3}>
+    <Grid container marginTop={2}>
       <swiper-container
         class="swiper"
         ref={swiperElRef}
         init="false"
-        slides-per-view={7}
-        space-between={10}
         showsPagination={false}
       >
         {categories.map((category) => (
           <swiper-slide key={category.id}>
             <Card
               sx={{
-                marginBottom: '8px',
+                margin: "8px",
                 borderRadius: "0.75rem",
-                backgroundColor: selectedCategory === category.id ? '#fce4ec' : 'white',
+                backgroundColor:
+                  selectedCategory === category.id ? "#fce4ec" : "white",
                 cursor: "pointer",
                 transition: "background-color 0.2s ease-out",
                 "&:hover": {
@@ -72,10 +89,13 @@ function Categories() {
               }}
               onClick={() => handleCategorySelect(category)}
             >
-              <CardContent sx={{ padding: "1.5rem", textAlign: "center" }}>
+              <CardContent sx={{ padding: ".5rem", textAlign: "center" }}>
                 <Typography
                   variant="h6"
-                  sx={{ color: selectedCategory === category.id ? '#d81b60' : '#222' }}
+                  sx={{
+                    color:
+                      selectedCategory === category.id ? "#d81b60" : "#222",
+                  }}
                 >
                   {category.name}
                 </Typography>

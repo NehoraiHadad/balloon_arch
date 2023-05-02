@@ -17,7 +17,7 @@ import Cart from "../Cart/Cart";
 
 const pages = [
   { component: "בית", link: "/" },
-  { component: "קטגוריות", link: "/products" },
+  { component: "מוצרים", link: "/products" },
   { component: "עלינו", link: "aboutUs" },
 ];
 
