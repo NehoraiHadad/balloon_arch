@@ -1,6 +1,8 @@
 import { Grid, Typography, Card, CardContent } from "@mui/material";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
 import { register } from "swiper/element/bundle";
+
+import { ProductsContext } from "../Context/ContextCart/ContextProductsProvider";
 
 register();
 
@@ -18,23 +20,29 @@ const categories = [
 ];
 
 function Categories() {
-  const [selectedCategory, setSelectedCategory] = useState("1");
+  const { selectedCategory, setSelectedCategory } = useContext(ProductsContext);
 
-  const [backgroundColor, setBackgroundColor] = useState('#6fa6ae');
+  const [backgroundColor, setBackgroundColor] = useState("#6fa6ae");
 
   const handleMouseEnter = () => {
-    const colors = ['#dfcbbd', '#deadd9', '#b4bfda', '#9dc3ce', '#b1d0b8', '#b1d0b8', '#a9d0ba', '#6fa6ae'];
+    const colors = [
+      "#dfcbbd",
+      "#deadd9",
+      "#b4bfda",
+      "#9dc3ce",
+      "#b1d0b8",
+      "#b1d0b8",
+      "#a9d0ba",
+      "#6fa6ae",
+    ];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     setBackgroundColor(randomColor);
-  };
-
-  const handleMouseLeave = () => {
-    setBackgroundColor('#6fa6ae');
   };
 
   function handleCategorySelect(category) {
     setSelectedCategory(category.id);
   }
+
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -44,44 +52,18 @@ function Categories() {
       breakpoints: {
         320: {
           slidesPerView: 2,
-          navigation: {
-            enabled: false,
-            hiddenClass: "320",
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
         },
         480: {
           slidesPerView: 3,
-          navigation: {
-            enabled: true,
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
         },
         640: {
           slidesPerView: 4,
-          navigation: {
-            enabled: true,
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
         },
         927: {
           slidesPerView: 5,
-          navigation: {
-            enabled: true,
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
         },
         1200: {
           slidesPerView: 6,
-          navigation: {
-            enabled: true,
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
         },
       },
       injectStyles: [
@@ -118,7 +100,6 @@ function Categories() {
           <swiper-slide key={category.id}>
             <Card
               onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
               sx={{
                 margin: "8px",
                 borderRadius: "0.75rem",

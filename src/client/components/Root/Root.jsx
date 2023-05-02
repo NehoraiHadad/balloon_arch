@@ -1,13 +1,13 @@
-import "./Root.css"
+import "./Root.css";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Grid2 from '@mui/material/Unstable_Grid2';
+import Grid2 from "@mui/material/Unstable_Grid2";
 import ResponsiveAppBar from "../NavBar/ResponsiveNavBar";
 import { Grid } from "@mui/material";
 
-
-import {ContextCartProvider} from "../Context/ContextCart/ContextCartProvider";
+import { ContextCartProvider } from "../Context/ContextCart/ContextCartProvider";
+import { ContextProductsProvider } from "../Context/ContextCart/ContextProductsProvider";
 
 const Root = () => {
   const [navbarHeight, setNavbarHeight] = useState(56);
@@ -23,31 +23,37 @@ const Root = () => {
     };
   }, []);
 
-
-  return(
+  return (
     <>
-      <ContextCartProvider>
-      
-        <Grid2 container direction={'column'} alignItems={'stretch'} 
-          sx={{
-            height:'100vh', 
-            width: '100vw', 
-          }}>
-          <Grid item sx={{maxHeight: `${navbarHeight}px`}}>
-            <ResponsiveAppBar />
-          </Grid> 
-          <Grid item id="details"
-                marginTop='auto'
-            sx={{ 
-              height: `calc(100vh - ${navbarHeight}px)`
-            }}>
-            <Outlet />
-          </Grid>
-        </Grid2>
-
-      </ContextCartProvider>
+      <ContextProductsProvider>
+        <ContextCartProvider>
+          <Grid2
+            container
+            direction={"column"}
+            alignItems={"stretch"}
+            sx={{
+              height: "100vh",
+              width: "100vw",
+            }}
+          >
+            <Grid item sx={{ maxHeight: `${navbarHeight}px` }}>
+              <ResponsiveAppBar />
+            </Grid>
+            <Grid
+              item
+              id="details"
+              marginTop="auto"
+              sx={{
+                height: `calc(100vh - ${navbarHeight}px)`,
+              }}
+            >
+              <Outlet />
+            </Grid>
+          </Grid2>
+        </ContextCartProvider>
+      </ContextProductsProvider>
     </>
   );
-}
+};
 
 export default Root;

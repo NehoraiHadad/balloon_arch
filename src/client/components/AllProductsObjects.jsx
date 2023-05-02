@@ -317,7 +317,7 @@ const AllProductObjects = [
     title: "מתנת גיל הורד",
     description: "מתנת גיל הורד מפנקת ומיוחדת למי שאוהב בלונים ומתוקים.",
     price: 150,
-    category: "1",
+    category: "4",
   },
   {
     id: 39,

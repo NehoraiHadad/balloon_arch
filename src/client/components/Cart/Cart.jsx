@@ -16,8 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 function Cart() {
-  const { cartItems, setCartItems, totalCost, setTotalCost } =
-    useContext(CartContext);
+  const { cartItems, setCartItems, totalCost, setTotalCost } = useContext(CartContext);
   const [open, setOpen] = useState(false);
   const [isMehadrin, setIsMehadrin] = useState(false);
 
