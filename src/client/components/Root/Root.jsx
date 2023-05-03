@@ -30,7 +30,6 @@ const Root = () => {
           <Grid2
             container
             direction={"column"}
-            alignItems={"stretch"}
             sx={{
               height: "100vh",
               width: "100vw",
